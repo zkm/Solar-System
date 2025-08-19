@@ -49,4 +49,4 @@ Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## License
 
-MIT
+This project is licensed under the [MIT License](LICENSE).
