@@ -7,10 +7,17 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^30.0.5",
-    "sass": "^1.90.0"
+    "prettier": "^3.0.0",
+    "sass": "^1.90.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard-scss": "^13.0.0"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
+    "lint:scss": "stylelint sass/**/*.scss",
+    "lint:scss:fix": "stylelint sass/**/*.scss --fix",
+    "format": "prettier --write \"**/*.{scss,js,json,md}\"",
+    "format:check": "prettier --check \"**/*.{scss,js,json,md}\"",
     "start": "serve .",
     "test": "jest"
   }

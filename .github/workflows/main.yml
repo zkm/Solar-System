@@ -20,6 +20,10 @@ jobs:
         run: yarn install
       - name: Build Sass
         run: yarn build:sass
+      - name: Check formatting
+        run: yarn format:check
+      - name: Lint SCSS
+        run: yarn lint:scss
       - name: Run tests
         run: |
           yarn add jest --dev

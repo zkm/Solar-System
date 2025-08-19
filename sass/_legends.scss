@@ -24,7 +24,7 @@ dl.infos:before {
   border-top: 1px solid white;
   border-left: 1px solid white;
   transform-style: preserve-3d;
-  transform: skew( -45deg , 0deg );
+  transform: skew(-45deg, 0deg);
   box-shadow: inset 1px 1px black;
 }
 
@@ -33,7 +33,7 @@ dl.infos dt {
   left: 50px;
   margin-bottom: 26px;
   bottom: 30px;
-  color: #FFF;
+  color: #fff;
   font-size: 14px;
   text-shadow: 1px 1px 2px black;
 }
@@ -43,7 +43,7 @@ dl.infos dd:after {
   left: 50px;
   bottom: 30px;
   width: 300px;
-  color: #FFF;
+  color: #fff;
   font-size: 22px;
   text-shadow: 1px 1px 2px black;
 }
@@ -53,7 +53,7 @@ dl.infos dd span:after {
   left: 50px;
   bottom: 14px;
   width: 300px;
-  color: #FFF;
+  color: #fff;
   font-size: 11px;
   text-shadow: 1px 1px 2px black;
 }
@@ -66,8 +66,8 @@ dl.infos dd span:after {
 .jupiter #jupiter .infos,
 .saturn #saturn .infos,
 .uranus #uranus .infos,
-.neptune #neptune .infos { 
-  display: block; 
+.neptune #neptune .infos {
+  display: block;
   opacity: 1;
   transform: rotateX(0deg);
 }
@@ -80,13 +80,21 @@ dl.infos dd span:after {
 .saturn #saturn.orbit,
 .uranus #uranus.orbit,
 .neptune #neptune.orbit {
-  border: 1px solid rgba(255,255,255,.8);
+  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
+.hide-UI h1,
+.hide-UI #data,
+.hide-UI dl.infos,
+.hide-UI #controls {
+  opacity: 0 !important;
+  margin-top: -30px;
+}
 
-.hide-UI h1, 
-.hide-UI #data, 
-.hide-UI dl.infos, 
-.hide-UI #controls { opacity: 0!important; margin-top: -30px; }
-.hide-UI #data { margin-bottom: -30px; }
-.hide-UI .orbit { border: 1px solid rgba(255,255,255,.2)!important; }
+.hide-UI #data {
+  margin-bottom: -30px;
+}
+
+.hide-UI .orbit {
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
