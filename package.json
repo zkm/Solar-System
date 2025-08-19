@@ -6,10 +6,12 @@
   "author": "Zach Schneider <me@zachschneider.com>",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^30.0.5",
     "sass": "^1.90.0"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
-    "start": "serve ."
+    "start": "serve .",
+    "test": "jest"
   }
 }
