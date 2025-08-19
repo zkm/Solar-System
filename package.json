@@ -1,0 +1,17 @@
+{
+  "name": "solar-system",
+  "version": "2.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:zkm/Solar-System.git",
+  "author": "Zach Schneider <me@zachschneider.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^30.0.5",
+    "sass": "^1.90.0"
+  },
+  "scripts": {
+    "build:sass": "sass sass/styles.scss css/styles.css",
+    "start": "serve .",
+    "test": "jest"
+  }
+}
