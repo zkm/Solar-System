@@ -46,9 +46,7 @@ $(document).ready(function () {
     setView("scale-stretched set-speed");
   }
 
-    function setSize() {
-      setView("scale-s set-size");
-    }
-  
-  });
-
+  function setSize() {
+    setView("scale-s set-size");
+  }
+});

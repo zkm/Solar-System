@@ -1,0 +1,5 @@
+# Ignore files
+node_modules/
+css/
+.git/
+*.min.js
