@@ -6,12 +6,12 @@
   "author": "Zach Schneider <me@zachschneider.com>",
   "license": "MIT",
   "devDependencies": {
-  "jest": "^30.0.5",
-  "prettier": "^3.0.0",
-  "sass": "^1.90.0",
-  "stylelint": "^16.0.0",
-  "stylelint-config-standard-scss": "^13.0.0",
-  "serve": "^14.0.1"
+    "jest": "^30.0.5",
+    "prettier": "^3.0.0",
+    "sass": "^1.90.0",
+    "stylelint": "^16.0.0",
+    "stylelint-config-standard-scss": "^13.0.0",
+    "serve": "^14.0.1"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
