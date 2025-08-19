@@ -1,1 +1,34 @@
+# Node/Yarn
+node_modules/
+.yarn/
+.yarnrc.yml
+
+# Sass cache
+.sass-cache/
+
+# VS Code
+.vscode/
+
+# OS files
 .DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build output
+css/*.css
+css/*.css.map
+
+# Ruby/Bundler
+.bundle/
+Gemfile.lock
+
+# Misc
+*.swp
+*.tmp
+
+# Environment
+.env
+.env.*
+

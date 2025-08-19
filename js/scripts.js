@@ -46,22 +46,9 @@ $(document).ready(function () {
     setView("scale-stretched set-speed");
   }
 
-  function setSize() {
-    setView("scale-s set-size");
-  }
+    function setSize() {
+      setView("scale-s set-size");
+    }
+  
+  });
 
-  function setDistance() {
-    setView("scale-d set-distance");
-  }
-
-  $("#toggle-data").click(toggleData);
-  $("#toggle-controls").click(toggleControls);
-  $("#data a").click(selectData);
-  $(".set-view").click(toggleView);
-  $(".set-zoom").click(toggleZoom);
-  $(".set-speed").click(setSpeed);
-  $(".set-size").click(setSize);
-  $(".set-distance").click(setDistance);
-
-  init();
-});
