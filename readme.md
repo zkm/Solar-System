@@ -14,6 +14,7 @@ A modern, interactive CSS and JavaScript solar system visualization.
 ### Prerequisites
 
 - Node.js and Yarn
+- Python 3 (used by the local dev server)
 
 ### Install dependencies
 
@@ -34,6 +35,14 @@ yarn start
 ```
 
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
+
+Note:
+- `yarn start` runs `python3 -m http.server 3000` to serve the repository root.
+- You can also run it directly without Yarn:
+
+```sh
+python3 -m http.server 3000
+```
 
 ## Development
 
