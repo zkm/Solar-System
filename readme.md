@@ -37,6 +37,7 @@ yarn start
 Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
 Note:
+
 - `yarn start` runs `python3 -m http.server 3000` to serve the repository root.
 - You can also run it directly without Yarn:
 
