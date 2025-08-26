@@ -1,6 +1,7 @@
 {
   "extends": "stylelint-config-standard-scss",
   "rules": {
+  "color-function-alias-notation": null,
     "scss/at-import-partial-extension": null,
     "scss/at-use-no-unnamespaced": null,
     "declaration-empty-line-before": null,
