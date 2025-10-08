@@ -16,6 +16,7 @@
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
+    "build:dist": "yarn build:sass && rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -r css js dist/ && touch dist/.nojekyll",
     "lint:scss": "stylelint sass/**/*.scss",
     "lint:scss:fix": "stylelint sass/**/*.scss --fix",
     "format": "prettier --write \"**/*.{scss,js,json,md}\"",
