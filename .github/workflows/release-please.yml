@@ -1,0 +1,19 @@
+name: release-please
+
+on:
+  push:
+    branches: [ master ]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run release-please
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: simple
+          # The action will open/update a Release PR; merging it creates tag + GitHub Release
