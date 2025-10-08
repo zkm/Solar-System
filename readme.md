@@ -2,8 +2,8 @@
 
 A modern, interactive CSS and JavaScript solar system visualization.
 
-[Live site](https://zkm.github.io/Solar-System/) · 
-[![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) · 
+[Live site](https://zkm.github.io/Solar-System/) ·
+[![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) ·
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## Features

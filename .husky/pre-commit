@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# Husky v9: no need to source _/husky.sh
+
+# Lint and format only staged files
+npx --no lint-staged

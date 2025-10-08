@@ -10,7 +10,9 @@
     "prettier": "^3.0.0",
     "sass": "^1.90.0",
     "stylelint": "^16.0.0",
-    "stylelint-config-standard-scss": "^16.0.0"
+    "stylelint-config-standard-scss": "^16.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
@@ -20,6 +22,14 @@
     "format:check": "prettier --check \"**/*.{scss,js,json,md}\"",
     "start": "python3 -m http.server 3000",
     "test": "jest",
-    "watch:sass": "sass --watch sass/styles.scss css/styles.css"
+    "watch:sass": "sass --watch sass/styles.scss css/styles.css",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.scss": [
+      "stylelint --fix",
+      "prettier --write"
+    ],
+    "*.{js,json,md}": "prettier --write"
   }
 }
