@@ -19,6 +19,7 @@
     "format": "prettier --write \"**/*.{scss,js,json,md}\"",
     "format:check": "prettier --check \"**/*.{scss,js,json,md}\"",
     "start": "python3 -m http.server 3000",
-    "test": "jest"
+    "test": "jest",
+    "watch:sass": "sass --watch sass/styles.scss css/styles.css"
   }
 }
