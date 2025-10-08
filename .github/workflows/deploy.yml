@@ -24,19 +24,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
 
+      - name: Ensure Yarn classic and show versions
+        run: |
+          npm i -g yarn@1.22.22
+          node -v
+          yarn -v
+
       - name: Install dependencies
         run: |
-          corepack enable
           yarn install --frozen-lockfile
 
       - name: Build CSS from Sass
         run: |
+          set -e
+          echo "Building Sass → CSS"
           yarn build:sass
 
       - name: Prepare static site
@@ -48,6 +58,7 @@ jobs:
           if [ -f LICENSE ]; then cp LICENSE dist/; fi
           # prevent Jekyll processing (so files like _something work)
           touch dist/.nojekyll
+          echo "Dist contents:" && ls -la dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
