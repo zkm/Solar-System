@@ -6,13 +6,13 @@
   "author": "Zach Schneider <me@zachschneider.com>",
   "license": "MIT",
   "devDependencies": {
+    "husky": "^9.0.0",
     "jest": "^30.0.5",
+    "lint-staged": "^15.0.0",
     "prettier": "^3.0.0",
     "sass": "^1.90.0",
     "stylelint": "^16.0.0",
-    "stylelint-config-standard-scss": "^16.0.0",
-    "husky": "^9.0.0",
-    "lint-staged": "^15.0.0"
+    "stylelint-config-standard-scss": "^16.0.0"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
