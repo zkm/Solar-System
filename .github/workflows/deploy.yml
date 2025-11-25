@@ -41,7 +41,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          yarn install --frozen-lockfile
+          # Install without frozen lockfile to avoid failure when yarn.lock is absent
+          yarn install
 
       - name: Build CSS from Sass
         run: |
