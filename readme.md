@@ -3,7 +3,7 @@
 A modern, interactive CSS and JavaScript solar system visualization.
 
 [![Live site](https://img.shields.io/badge/Live%20site-Open-2ea44f.svg)](https://zkm.github.io/Solar-System/) ·
-[![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) ·
+[![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) ·
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 ## Features
@@ -85,6 +85,7 @@ Notes:
 
 - Assets are referenced with relative paths (`./css`, `./js`), so they work under `/Solar-System/`.
 - The workflow builds Sass, copies `index.html`, `css/`, and `js/` into `dist/`, adds `.nojekyll`, and publishes `dist/`.
+- The GitHub Actions badge reflects the last run of the workflow (any branch). Pinning `?branch=master` makes it show the status of the default branch. Badges are cached for a few minutes, so updates may be delayed.
 - For a custom domain, configure it in Settings → Pages.
 
 ## License
