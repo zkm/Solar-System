@@ -9,10 +9,12 @@
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "lint-staged": "^16.2.7",
+    "postcss": "^8.4.35",
     "prettier": "^3.8.0",
     "sass": "^1.97.2",
-    "stylelint": "^17.0.0",
-    "stylelint-config-standard-scss": "^17.0.0"
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "stylelint-scss": "^6.14.0"
   },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
