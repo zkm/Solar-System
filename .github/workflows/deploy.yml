@@ -33,33 +33,16 @@ jobs:
           node-version: '20'
           cache: 'yarn'
 
-      - name: Ensure Yarn classic and show versions
+      - name: Enable Corepack
         run: |
-          npm i -g yarn@1.22.22
-          node -v
-          yarn -v
+          corepack enable
+          yarn --version
 
       - name: Install dependencies
-        run: |
-          # Install without frozen lockfile to avoid failure when yarn.lock is absent
-          yarn install
+        run: yarn install --immutable
 
-      - name: Build CSS from Sass
-        run: |
-          set -e
-          echo "Building Sass → CSS"
-          yarn build:sass
-
-      - name: Prepare static site
-        run: |
-          set -euo pipefail
-          mkdir -p dist
-          cp index.html dist/
-          cp -r css js dist/
-          if [ -f LICENSE ]; then cp LICENSE dist/; fi
-          # prevent Jekyll processing (so files like _something work)
-          touch dist/.nojekyll
-          echo "Dist contents:" && ls -la dist
+      - name: Build distribution
+        run: yarn build:dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

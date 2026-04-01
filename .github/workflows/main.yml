@@ -6,26 +6,37 @@ on:
   pull_request:
     branches: [ master, refactor/2025 ]
 
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          yarn --version
+
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
+
       - name: Build Sass
         run: yarn build:sass
+
       - name: Check formatting
         run: yarn format:check
+
       - name: Lint SCSS
         run: yarn lint:scss
+
       - name: Run tests
-        run: |
-          yarn add jest --dev
-          yarn jest --passWithNoTests
-      # Add more steps here for linting or testing if needed
+        run: yarn test --runInBand --passWithNoTests

@@ -20,23 +20,16 @@ jobs:
           node-version: '20'
           cache: 'yarn'
 
-      - name: Ensure Yarn classic
-        run: npm i -g yarn@1.22.22
+      - name: Enable Corepack
+        run: |
+          corepack enable
+          yarn --version
 
       - name: Install deps
-        run: yarn install --frozen-lockfile
+        run: yarn install --immutable
 
-      - name: Build CSS
-        run: yarn build:sass
-
-      - name: Create dist
-        run: |
-          set -euo pipefail
-          mkdir -p dist
-          cp index.html dist/
-          cp -r css js dist/
-          if [ -f LICENSE ]; then cp LICENSE dist/; fi
-          touch dist/.nojekyll
+      - name: Build dist
+        run: yarn build:dist
 
       - name: Zip artifact
         run: |
