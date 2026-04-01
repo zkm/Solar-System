@@ -16,6 +16,16 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-scss": "^6.14.0"
   },
+  "resolutions": {
+    "tar@^7.5.2": "7.5.4",
+    "@isaacs/brace-expansion@^5.0.0": "5.0.1",
+    "brace-expansion@^5.0.2": "5.0.5",
+    "minimatch@^10.1.1": "10.2.1",
+    "immutable@^5.0.2": "5.1.5",
+    "flatted@^3.3.3": "3.4.2",
+    "picomatch@^2.0.4": "2.3.2",
+    "picomatch@^2.3.1": "2.3.2"
+  },
   "scripts": {
     "build:sass": "sass sass/styles.scss css/styles.css",
     "build:dist": "yarn build:sass && rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -r css js dist/ && touch dist/.nojekyll",
