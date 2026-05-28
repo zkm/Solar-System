@@ -1,7 +1,6 @@
 # Node/Yarn
 node_modules/
 .yarn/
-.yarnrc.yml
 
 # Sass cache
 .sass-cache/
