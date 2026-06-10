@@ -48,5 +48,8 @@
       "prettier --write"
     ],
     "*.{js,json,md}": "prettier --write"
+  },
+  "dependencies": {
+    "corepack": "^0.35.0"
   }
 }
