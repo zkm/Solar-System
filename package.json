@@ -5,14 +5,14 @@
   "repository": "git@github.com:zkm/Solar-System.git",
   "author": "Zach Schneider <me@zachschneider.com>",
   "license": "MIT",
-  "packageManager": "yarn@4.10.3",
+  "packageManager": "yarn@4.17.0",
   "devDependencies": {
     "husky": "^9.1.7",
     "jest": "^30.4.2",
-    "lint-staged": "^17.0.5",
+    "lint-staged": "^17.0.8",
     "postcss": "^8.5.15",
     "prettier": "^3.8.3",
-    "sass": "^1.100.0",
+    "sass": "^1.101.0",
     "stylelint": "^17.12.0",
     "stylelint-config-standard-scss": "^17.0.0",
     "stylelint-scss": "^7.1.1"
