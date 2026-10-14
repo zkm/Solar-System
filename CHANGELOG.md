@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.0.0](https://github.com/zkm/Solar-System/compare/v1.0.3...v2.0.0) (2026-10-14)
+
+
+### Features
+
+* add shooting stars and occasional comets ([ccc8e6c](https://github.com/zkm/Solar-System/commit/ccc8e6c187d168e2e8ba5aa954552cec84f521cb))
+* rebuild for 2026 with Vite, native CSS and vanilla JS ([56e5665](https://github.com/zkm/Solar-System/commit/56e56654d4568eb2c92b84c3193eed836718496d))
+
+
+### Miscellaneous Chores
+
+* release 2.0.0 ([6a801ca](https://github.com/zkm/Solar-System/commit/6a801ca393dd0af975ac2e22a1c06aec2c14ba1e))
+
 ## [1.0.3](https://github.com/zkm/Solar-System/compare/v1.0.2...v1.0.3) (2026-10-14)
 
 
