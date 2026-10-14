@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.3](https://github.com/zkm/Solar-System/compare/v1.0.2...v1.0.3) (2026-10-14)
+
+
+### Bug Fixes
+
+* **deps:** bump colord to 2.10.0 ([bd56fa3](https://github.com/zkm/Solar-System/commit/bd56fa31c8577ff45c6ccaeb19b563e1e8c4c90c))
+
 ## [1.0.2](https://github.com/zkm/Solar-System/compare/v1.0.1...v1.0.2) (2026-09-15)
 
 
