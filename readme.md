@@ -12,6 +12,7 @@ An interactive solar system built with CSS 3D transforms. Originally written in 
 - Three scales: **speed** (true orbital periods), **size** (true planet sizes) and **distance** (true orbit distances)
 - Close-up mode that lines the planets up side by side
 - Planet legends showing orbital velocity, circumference or distance
+- Shooting stars every few seconds, and the occasional slow comet
 - Pause/play motion; starts paused when the visitor prefers reduced motion
 - Keyboard and screen reader friendly controls; responsive down to phone widths
 - No framework: vanilla JavaScript modules and native CSS (nesting, custom properties, `calc()`)
@@ -46,6 +47,7 @@ A Husky pre-commit hook runs Biome on staged files, and pushes to `master` run t
 - `src/main.js` — entry point: loads the styles, starts the app, plays the intro
 - `src/app.js` — wires the controls and planet list to the scene
 - `src/planets.js` — legend figures for each body
+- `src/sky.js` — spawns shooting stars and comets at random
 - `src/styles/planets.css` — the physical model: each body's radius, distance and period, from which every size, orbit and speed is calculated
 - `src/styles/` — the rest of the styles (scene, views, lighting, legends, UI, responsive)
 - `src/assets/textures/` — planet and background textures
