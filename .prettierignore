@@ -1,7 +1,0 @@
-# Ignore files
-node_modules/
-.venv/
-css/
-.git/
-*.min.js
-CHANGELOG.md

@@ -1,60 +1,34 @@
 {
   "name": "solar-system",
   "version": "2.0.0",
-  "main": "index.js",
   "repository": "git@github.com:zkm/Solar-System.git",
   "author": "Zach Schneider <me@zachschneider.com>",
   "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
   "packageManager": "yarn@4.17.0",
   "devDependencies": {
+    "@biomejs/biome": "^2.5.15",
+    "happy-dom": "^21.0.1",
     "husky": "^9.1.7",
-    "jest": "^30.4.2",
-    "lint-staged": "^17.0.8",
-    "postcss": "^8.5.15",
-    "prettier": "^3.8.3",
-    "sass": "^1.101.0",
-    "stylelint": "^17.12.0",
-    "stylelint-config-standard-scss": "^17.0.0",
-    "stylelint-scss": "^7.1.1"
-  },
-  "resolutions": {
-    "tar@^7.5.4": "7.5.22",
-    "@isaacs/brace-expansion@^5.0.0": "5.0.6",
-    "brace-expansion@^5.0.2": "5.0.6",
-    "brace-expansion@^5.0.5": "5.0.6",
-    "brace-expansion@^1.1.7": "1.1.21",
-    "brace-expansion@^2.0.2": "2.1.7",
-    "browserslist": "4.28.7",
-    "minimatch@^10.1.1": "10.2.3",
-    "immutable@^5.1.5": "5.1.9",
-    "flatted@^3.3.3": "3.4.2",
-    "fast-uri@^3.0.1": "3.1.8",
-    "ip-address@^10.0.1": "10.2.2",
-    "picomatch@^2.0.4": "2.3.2",
-    "picomatch@^2.3.1": "2.3.2",
-    "js-yaml@^3.13.1": "3.15.2",
-    "js-yaml@^4.1.0": "4.3.2",
-    "postcss@^8.5.15": "8.5.26",
-    "undici@^6.25.0": "6.28.1"
+    "lint-staged": "^17.6.0",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
   },
   "scripts": {
-    "build:sass": "sass sass/styles.scss css/styles.css",
-    "build:dist": "yarn build:sass && rm -rf dist && mkdir -p dist && cp index.html dist/ && cp -r css js dist/ && touch dist/.nojekyll",
-    "lint:scss": "stylelint sass/**/*.scss",
-    "lint:scss:fix": "stylelint sass/**/*.scss --fix",
-    "format": "prettier --write \"**/*.{scss,js,json,md}\"",
-    "format:check": "prettier --check \"**/*.{scss,js,json,md}\"",
-    "start": "python3 -m http.server 3000",
-    "test": "jest",
-    "watch:sass": "sass --watch sass/styles.scss css/styles.css",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "biome check .",
+    "check:fix": "biome check --write .",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.scss": [
-      "stylelint --fix",
-      "prettier --write"
-    ],
-    "*.{js,json,md}": "prettier --write"
+    "*.{js,css,json,html}": "biome check --write --no-errors-on-unmatched"
   },
   "dependencies": {
     "corepack": "^0.35.0"

@@ -1,0 +1,50 @@
+/* --------------------------------------------------------------------------- transitions */
+
+#solar-system,
+.orbit,
+.planet,
+.ring {
+  transition-property: width, height, top, left, margin-left, margin-top, transform;
+}
+
+#sun {
+  transition-property: width, height, transform;
+}
+
+.pos {
+  transition-property: top, left;
+  transition-delay: 1s;
+}
+
+#solar-system,
+#sun,
+.orbit,
+.pos,
+.planet,
+.ring,
+.infos {
+  transition-duration: 0.8s;
+  transition-timing-function: ease-in-out;
+}
+
+/* --------------------------------------------------------------------------- intro
+ * main.js adds .intro (flat 2D, no transitions), then swaps it for .intro-tilt
+ * so the system slowly tilts into 3D while the UI fades in.
+ */
+
+.intro :is(#solar-system, #sun, .orbit, .pos, .planet, .ring, .infos) {
+  transition: none;
+}
+
+.intro-tilt :is(#solar-system, #sun, .orbit, .pos, .planet, .ring) {
+  transition-duration: 4s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
+  }
+}

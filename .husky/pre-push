@@ -4,6 +4,6 @@ branch=$(git rev-parse --abbrev-ref HEAD)
 
 if [ "$branch" = "master" ]; then
   echo "Running checks before pushing to master..."
-  yarn format:check || exit 1
+  yarn check || exit 1
   yarn test || exit 1
 fi

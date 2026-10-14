@@ -2,9 +2,6 @@
 node_modules/
 .yarn/
 
-# Sass cache
-.sass-cache/
-
 # VS Code
 .vscode/
 
@@ -16,12 +13,7 @@ Thumbs.db
 *.log
 
 # Build output
-css/*.css
-css/*.css.map
-
-# Ruby/Bundler
-.bundle/
-Gemfile.lock
+dist/
 
 # Misc
 *.swp
