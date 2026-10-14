@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run release-please
-        uses: google-github-actions/release-please-action@v4
+        uses: googleapis/release-please-action@v5
         with:
           release-type: simple
           # The action will open/update a Release PR; merging it creates tag + GitHub Release

@@ -1,6 +1,6 @@
 # Solar-System
 
-A modern, interactive CSS and JavaScript solar system visualization.
+An interactive solar system built with CSS 3D transforms. Originally written in 2013, rebuilt in 2026 with Vite, native CSS and vanilla JavaScript modules.
 
 [![Live site](https://img.shields.io/badge/Live%20site-Open-2ea44f.svg)](https://zkm.github.io/Solar-System/) ·
 [![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) ·
@@ -8,85 +8,59 @@ A modern, interactive CSS and JavaScript solar system visualization.
 
 ## Features
 
-- 3D/2D solar system view
-- Interactive controls for zoom, speed, size, and distance
-- Responsive design
-- Built with vanilla JavaScript and Sass
+- 3D and 2D views, with an intro that tilts the system into 3D
+- Three scales: **speed** (true orbital periods), **size** (true planet sizes) and **distance** (true orbit distances)
+- Close-up mode that lines the planets up side by side
+- Planet legends showing orbital velocity, circumference or distance
+- Pause/play motion; starts paused when the visitor prefers reduced motion
+- Keyboard and screen reader friendly controls; responsive down to phone widths
+- No framework: vanilla JavaScript modules and native CSS (nesting, custom properties, `calc()`)
 
 ## Quick start
 
-### Prerequisites
-
-- Node.js and Yarn
-- Python 3 (used by the local dev server)
-
-Install dependencies
+Requires Node.js 24+ (Yarn is provided through Corepack).
 
 ```sh
+corepack enable
 yarn install
+yarn dev
 ```
 
-Build CSS from Sass
-
-```sh
-yarn build:sass
-```
-
-Start local server
-
-```sh
-yarn start
-```
-
-Visit [http://localhost:3000](http://localhost:3000) in your browser.
-
-Note:
-
-- `yarn start` runs `python3 -m http.server 3000` to serve the repository root.
-- You can also run it directly without Yarn:
-
-```sh
-python3 -m http.server 3000
-```
+Visit [http://localhost:3000](http://localhost:3000).
 
 ## Development
 
-- Edit Sass in `sass/`; use `yarn watch:sass` for live rebuilds, or run `yarn build:sass` on demand.
-- Edit JavaScript in `js/scripts.js` (vanilla JS, no jQuery required).
+| Script            | What it does                                     |
+| ----------------- | ------------------------------------------------ |
+| `yarn dev`        | Vite dev server with hot reload on port 3000     |
+| `yarn build`      | Production build into `dist/`                    |
+| `yarn preview`    | Serve the production build locally               |
+| `yarn test`       | Run the Vitest suite once (`yarn test:watch` to watch) |
+| `yarn check`      | Biome lint + format check (`yarn check:fix` to fix)    |
 
-### Scripts
+A Husky pre-commit hook runs Biome on staged files, and pushes to `master` run the checks and tests first.
 
-- `yarn build:sass` — Compile `sass/styles.scss` to `css/styles.css`
-- `yarn watch:sass` — Watch and rebuild Sass on change
-- `yarn start` — Static server on http://localhost:3000
-- `yarn lint:scss` / `yarn lint:scss:fix` — Stylelint SCSS rules
-- `yarn format` / `yarn format:check` — Prettier
+### Project structure
 
-## Project Structure
-
-- `index.html` — Main HTML file
-- `css/` — Compiled CSS
-- `sass/` — Source Sass files
-- `js/` — JavaScript files
+- `index.html` — page markup and the scene graph (orbits, planets, rings)
+- `src/main.js` — entry point: loads the styles, starts the app, plays the intro
+- `src/app.js` — wires the controls and planet list to the scene
+- `src/planets.js` — legend figures for each body
+- `src/styles/planets.css` — the physical model: each body's radius, distance and period, from which every size, orbit and speed is calculated
+- `src/styles/` — the rest of the styles (scene, views, lighting, legends, UI, responsive)
+- `src/assets/textures/` — planet and background textures
+- `public/` — files copied as-is (favicon)
 
 ## Deployment
 
-This repo is set up for GitHub Pages via Actions. Deploys happen automatically on every push to `master`.
+Every push to `master` builds the site and deploys `dist/` to GitHub Pages through Actions.
 
 - Workflow file: `.github/workflows/deploy.yml`
 - Live URL: https://zkm.github.io/Solar-System/
 - Pages settings: Settings → Pages → Source: GitHub Actions
+- Manual trigger: GitHub → Actions → "Deploy to GitHub Pages" → Run workflow
 
-Manual trigger:
-
-- GitHub → Actions → "Deploy to GitHub Pages" → Run workflow
-
-Notes:
-
-- Assets are referenced with relative paths (`./css`, `./js`), so they work under `/Solar-System/`.
-- The workflow builds Sass, copies `index.html`, `css/`, and `js/` into `dist/`, adds `.nojekyll`, and publishes `dist/`.
-- The GitHub Actions badge reflects the last run of the workflow (any branch). Pinning `?branch=master` makes it show the status of the default branch. Badges are cached for a few minutes, so updates may be delayed.
-- For a custom domain, configure it in Settings → Pages.
+The build uses relative asset paths (`base: "./"` in `vite.config.js`), so it works under `/Solar-System/`. Releases are cut by release-please, and each published release gets a zipped `dist/` attached.
 
 ## License
 

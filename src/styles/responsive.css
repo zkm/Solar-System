@@ -1,0 +1,73 @@
+/* --------------------------------------------------------------------------- responsive
+ * The whole system is sized in em, so scaling #universe scales everything.
+ * 10px (the body size) at 1300px wide, shrinking with the viewport.
+ */
+
+#universe {
+  font-size: clamp(2px, 0.77vw, 10px);
+}
+
+@media (width >= 1000px) {
+  #navbar {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    height: 64px;
+    background: transparent;
+    border: 0;
+    backdrop-filter: none;
+  }
+
+  h1 {
+    font-size: 22px;
+  }
+
+  .panel-toggle {
+    display: none;
+  }
+
+  #data,
+  #controls {
+    border: 1px solid var(--panel-border);
+    border-radius: 12px;
+  }
+
+  .data-close #data,
+  .controls-close #controls {
+    translate: none;
+    visibility: visible;
+  }
+
+  #controls {
+    top: 16px;
+    right: 16px;
+  }
+
+  #data {
+    top: auto;
+    bottom: 16px;
+    left: 50%;
+    translate: -50% 0;
+    padding: 6px;
+    border-radius: 999px;
+
+    .data-close & {
+      translate: -50% 0;
+    }
+
+    & ul {
+      display: flex;
+    }
+
+    & button {
+      padding: 10px 16px;
+      text-align: center;
+      border-radius: 999px;
+    }
+  }
+}
+
+@media (width >= 1600px) {
+  .zoom-close .scale-d #solar-system {
+    margin-left: -120%;
+  }
+}

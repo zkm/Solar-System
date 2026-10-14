@@ -1,0 +1,154 @@
+/* --------------------------------------------------------------------------- data
+ *
+ * Each body declares its real measurements once; the rules below derive sizes,
+ * orbit diameters and orbital periods for every scale from them.
+ *
+ *   --period          sidereal orbital period, in Earth years
+ *   --radius          equatorial radius, in km
+ *   --distance        mean distance from the Sun, in millions of km
+ *   --size-orbit      orbit spacing used by the "size" scale
+ *   --stretched-size  planet size used by the "speed" (stretched) scale
+ *   --stretched-orbit orbit diameter used by the "speed" (stretched) scale
+ */
+
+:root {
+  --year: 12s;
+  --sun-radius: 695508;
+  --distance-scale: 0.00003em;
+  --size-scale: 0.0003em;
+  --distance-orbit-scale: 0.013em;
+}
+
+#sun {
+  --radius: var(--sun-radius);
+  --stretched-size: 24em;
+}
+
+#mercury {
+  --period: 0.2408467;
+  --radius: 2439;
+  --distance: 57.909227;
+  --size-orbit: 6;
+  --stretched-size: 1.5em;
+  --stretched-orbit: 32em;
+}
+
+#venus {
+  --period: 0.61519726;
+  --radius: 6051;
+  --distance: 108.209475;
+  --size-orbit: 10;
+  --stretched-size: 3.72em;
+  --stretched-orbit: 40em;
+}
+
+#earth {
+  --period: 1.0000174;
+  --radius: 6371;
+  --distance: 149.598262;
+  --size-orbit: 14;
+  --stretched-size: 3.92em;
+  --stretched-orbit: 56em;
+}
+
+/* the Moon's orbit sits inside Earth's .pos, so it overrides Earth's values */
+#earth .orbit {
+  --period: 0.074803559;
+  --radius: 1371;
+  --stretched-size: 1.2em;
+  --stretched-orbit: 6em;
+}
+
+#mars {
+  --period: 1.8808476;
+  --radius: 3389;
+  --distance: 227.943824;
+  --size-orbit: 18;
+  --stretched-size: 2.9em;
+  --stretched-orbit: 72em;
+}
+
+#jupiter {
+  --period: 11.862615;
+  --radius: 69911;
+  --distance: 778.340821;
+  --size-orbit: 36;
+  --stretched-size: 12em;
+  --stretched-orbit: 100em;
+}
+
+#saturn {
+  --period: 29.447498;
+  --radius: 58232;
+  --distance: 1426.666422;
+  --size-orbit: 72;
+  --stretched-size: 10.8em;
+  --stretched-orbit: 150em;
+}
+
+#uranus {
+  --period: 84.016846;
+  --radius: 25362;
+  --distance: 2870.658186;
+  --size-orbit: 100;
+  --stretched-size: 4.68em;
+  --stretched-orbit: 186em;
+}
+
+#neptune {
+  --period: 164.79132;
+  --radius: 24622;
+  --distance: 4498.396441;
+  --size-orbit: 116;
+  --stretched-size: 4.9em;
+  --stretched-orbit: 210em;
+}
+
+/* --------------------------------------------------------------------------- speed */
+
+.orbit,
+.orbit :is(.pos, .planet, .ring) {
+  animation-duration: calc(var(--period) * var(--year));
+}
+
+/* --------------------------------------------------------------------------- body sizes */
+
+.scale-stretched :is(#sun, .planet, .moon) {
+  font-size: var(--stretched-size);
+}
+
+.scale-d :is(#sun, .planet, .moon) {
+  font-size: calc(var(--radius) * 2 * var(--distance-scale));
+}
+
+.scale-s :is(#sun, .planet, .moon) {
+  font-size: calc(var(--radius) * 2 * var(--size-scale));
+}
+
+/* --------------------------------------------------------------------------- orbit sizes */
+
+.orbit {
+  width: var(--orbit-size);
+  height: var(--orbit-size);
+  margin-top: calc(var(--orbit-size) / -2);
+  margin-left: calc(var(--orbit-size) / -2);
+}
+
+.scale-stretched .orbit {
+  --orbit-size: var(--stretched-orbit);
+}
+
+/* the Sun's diameter plus the planet's distance on each side */
+.scale-d .orbit {
+  --sun-diameter: calc(var(--sun-radius) * 2 * var(--distance-scale));
+  --orbit-size: calc(var(--sun-diameter) + var(--distance) * 4 * var(--distance-orbit-scale));
+}
+
+.scale-s .orbit {
+  --orbit-size: calc(var(--sun-radius) * 2 * var(--size-scale) + var(--size-orbit) * 4em);
+}
+
+.scale-d #earth .orbit,
+.scale-s #earth .orbit {
+  --orbit-size: 1em;
+}

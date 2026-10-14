@@ -1,0 +1,258 @@
+/* --------------------------------------------------------------------------- reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  color-scheme: dark;
+  --space: #08090a;
+  --text: rgb(255 255 255 / 0.9);
+  --text-muted: rgb(255 255 255 / 0.6);
+  --accent: #0cf;
+  --orbit-line: rgb(255 255 255 / 0.2);
+  --orbit-line-active: rgb(255 255 255 / 0.8);
+  --panel: rgb(8 12 18 / 0.55);
+  --panel-border: rgb(255 255 255 / 0.12);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  font:
+    300 10px / 1 system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  color: var(--text);
+  background: var(--space) url("../assets/textures/stars.png");
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+/* --------------------------------------------------------------------------- scene */
+
+#universe {
+  z-index: 1;
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: url("../assets/textures/nebula.png") no-repeat center 40% / cover;
+}
+
+#galaxy {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#solar-system {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid var(--orbit-line);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  animation: orbit linear infinite;
+}
+
+.orbit .orbit {
+  animation-name: suborbit;
+}
+
+.pos {
+  position: absolute;
+  top: 50%;
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+  transform-style: preserve-3d;
+  animation: invert linear infinite;
+}
+
+#sun,
+.planet,
+.moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1em;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+  border-radius: 50%;
+  transform-style: preserve-3d;
+  background: #202020 no-repeat center / cover;
+}
+
+#sun {
+  background-color: #fb7209;
+  background-image: url("../assets/textures/sun.png");
+  box-shadow: 0 0 60px rgb(255 160 60 / 0.4);
+}
+
+.planet {
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.moon {
+  background: white;
+}
+
+#mercury .planet {
+  background-image: url("../assets/textures/mercury.png");
+}
+
+#venus .planet {
+  background-image: url("../assets/textures/venus.png");
+}
+
+#earth .planet {
+  background-image: url("../assets/textures/earth.png");
+}
+
+#mars .planet {
+  background-image: url("../assets/textures/mars.png");
+}
+
+#jupiter .planet {
+  background-image: url("../assets/textures/jupiter.png");
+}
+
+#saturn .planet {
+  background-image: url("../assets/textures/saturn.png");
+}
+
+#uranus .planet {
+  background-image: url("../assets/textures/uranus.png");
+}
+
+#neptune .planet {
+  background-image: url("../assets/textures/neptune.png");
+}
+
+.ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 50%;
+}
+
+#saturn .ring {
+  width: 2em;
+  height: 2em;
+  margin-top: -1em;
+  margin-left: -1em;
+  border: 0.3em solid rgb(160 147 130 / 0.7);
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2.2em;
+    height: 2.2em;
+    margin-top: -1.1em;
+    margin-left: -1.1em;
+    border: 0.07em solid rgb(160 147 130 / 0.5);
+    border-radius: 50%;
+  }
+}
+
+/* --------------------------------------------------------------------------- stacking */
+
+#mercury {
+  z-index: 10;
+}
+
+#venus {
+  z-index: 9;
+}
+
+#earth {
+  z-index: 8;
+}
+
+#mars {
+  z-index: 6;
+}
+
+#jupiter {
+  z-index: 5;
+}
+
+#saturn {
+  z-index: 4;
+}
+
+#uranus {
+  z-index: 3;
+}
+
+#neptune {
+  z-index: 2;
+}
+
+#sun {
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------- motion */
+
+@keyframes orbit {
+  from {
+    transform: rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateZ(-360deg);
+  }
+}
+
+@keyframes suborbit {
+  from {
+    transform: rotateX(90deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(90deg) rotateZ(-360deg);
+  }
+}
+
+@keyframes invert {
+  from {
+    transform: rotateX(-90deg) rotateY(360deg) rotateZ(0deg);
+  }
+
+  to {
+    transform: rotateX(-90deg) rotateY(0deg) rotateZ(0deg);
+  }
+}
+
+.paused :is(.orbit, .pos, .planet, .ring) {
+  animation-play-state: paused;
+}

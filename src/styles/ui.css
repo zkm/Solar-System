@@ -1,0 +1,227 @@
+/* --------------------------------------------------------------------------- navbar */
+
+#navbar {
+  z-index: 99;
+  position: fixed;
+  inset: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 48px;
+  padding-inline: 4px;
+  background: var(--panel);
+  border-bottom: 1px solid var(--panel-border);
+  backdrop-filter: blur(8px);
+}
+
+h1 {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  transition: opacity 0.8s ease-in-out 0.35s;
+}
+
+.panel-toggle {
+  justify-self: start;
+  padding: 12px 14px;
+  font-size: 14px;
+  color: var(--text-muted);
+  background: none;
+  border: 0;
+  cursor: pointer;
+
+  &:hover,
+  &[aria-expanded="true"] {
+    color: #fff;
+  }
+
+  &#toggle-controls {
+    justify-self: end;
+  }
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------- panels */
+
+#data,
+#controls {
+  z-index: 98;
+  position: fixed;
+  top: 48px;
+  padding: 16px;
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-top: 0;
+  backdrop-filter: blur(8px);
+  transition:
+    opacity 0.8s ease-in-out,
+    translate 0.3s ease-out,
+    visibility 0.3s;
+}
+
+#data {
+  left: 0;
+  border-left: 0;
+  border-bottom-right-radius: 12px;
+  transition-delay: 0.7s, 0s, 0s;
+}
+
+#controls {
+  right: 0;
+  border-right: 0;
+  border-bottom-left-radius: 12px;
+  transition-delay: 1s, 0s, 0s;
+}
+
+.data-close #data {
+  translate: -110% 0;
+  visibility: hidden;
+}
+
+.controls-close #controls {
+  translate: 110% 0;
+  visibility: hidden;
+}
+
+.hide-UI :is(h1, #data, #controls) {
+  opacity: 0;
+}
+
+/* --------------------------------------------------------------------------- planet list */
+
+#data ul {
+  display: grid;
+  gap: 2px;
+  list-style: none;
+}
+
+#data button {
+  display: block;
+  width: 100%;
+  padding: 6px 12px;
+  font-size: 18px;
+  text-align: start;
+  color: var(--text-muted);
+  background: none;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover {
+    color: #fff;
+    background: rgb(255 255 255 / 0.06);
+  }
+
+  &[aria-pressed="true"] {
+    color: var(--accent);
+  }
+}
+
+/* --------------------------------------------------------------------------- controls */
+
+#controls {
+  display: grid;
+  gap: 18px;
+  min-width: 220px;
+  font-size: 16px;
+}
+
+#controls fieldset {
+  border: 0;
+}
+
+#controls legend {
+  margin-bottom: 8px;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* inputs stay focusable and readable by assistive tech; the spans draw them */
+#controls input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  cursor: pointer;
+}
+
+.track {
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 24px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  transition: background-color 0.2s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    transition: translate 0.2s;
+  }
+}
+
+input:checked + .track {
+  background: var(--accent);
+  border-color: var(--accent);
+
+  &::before {
+    translate: 20px 0;
+  }
+}
+
+.segmented {
+  display: flex;
+  padding: 3px;
+  border: 1px solid rgb(255 255 255 / 0.3);
+  border-radius: 999px;
+
+  & label {
+    flex: 1;
+    cursor: pointer;
+  }
+
+  & span {
+    display: block;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-align: center;
+    border-radius: 999px;
+    color: var(--text-muted);
+  }
+
+  & label:hover span {
+    color: #fff;
+  }
+
+  & input:checked + span {
+    color: #000;
+    background: #fff;
+  }
+}
+
+#controls input:focus-visible + :is(.track, span) {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
