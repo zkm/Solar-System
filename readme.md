@@ -37,6 +37,7 @@ Visit [http://localhost:3000](http://localhost:3000).
 | `yarn build`      | Production build into `dist/`                    |
 | `yarn preview`    | Serve the production build locally               |
 | `yarn test`       | Run the Vitest suite once (`yarn test:watch` to watch) |
+| `yarn test:e2e`   | Playwright tests against the production build (run `yarn playwright install chromium` once first) |
 | `yarn check`      | Biome lint + format check (`yarn check:fix` to fix)    |
 
 A Husky pre-commit hook runs Biome on staged files, and pushes to `master` run the checks and tests first.
