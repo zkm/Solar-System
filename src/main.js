@@ -1,10 +1,14 @@
 import "./styles/main.css";
 import { createApp } from "./app.js";
+import { startSky } from "./sky.js";
 
 const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 const app = createApp(document, { reducedMotion });
 if (!reducedMotion) playIntro(document.body);
+startSky(document.getElementById("sky"), {
+  isActive: () => !document.body.classList.contains("paused"),
+});
 
 // Start flat with the UI hidden, then tilt into 3D and fade the UI in.
 function playIntro(body) {
