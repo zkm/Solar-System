@@ -493,9 +493,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:^21.0.1":
-  version: 21.0.1
-  resolution: "happy-dom@npm:21.0.1"
+"happy-dom@npm:^21.0.4":
+  version: 21.0.4
+  resolution: "happy-dom@npm:21.0.4"
   dependencies:
     "@types/node": "npm:>=20.0.0"
     "@types/whatwg-mimetype": "npm:^3.0.2"
@@ -504,7 +504,7 @@ __metadata:
     entities: "npm:^7.0.1"
     whatwg-mimetype: "npm:^3.0.0"
     ws: "npm:^8.21.0"
-  checksum: 10c0/55d9c49dc5cad314cb3f0579de67f7f8f448ad277e547de43781504a86dc6ec4c43f0475eb795780d852db7ca43a15c0100025087c1078a27d2dec699d9949a1
+  checksum: 10c0/9368af9739a5ba07776a116368d13d6b2690de81a6525096a1fec36e4cd1270b569151d021e2a56fb314fba73674572de562f1364090b01df6c68e9843b002e8
   languageName: node
   linkType: hard
 
@@ -866,7 +866,7 @@ __metadata:
     "@biomejs/biome": "npm:^2.5.15"
     "@playwright/test": "npm:^1.64.0"
     corepack: "npm:^0.35.0"
-    happy-dom: "npm:^21.0.1"
+    happy-dom: "npm:^21.0.4"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^17.6.0"
     vite: "npm:^8.3.4"
@@ -947,9 +947,9 @@ __metadata:
   linkType: hard
 
 "undici@npm:^6.25.0":
-  version: 6.29.0
-  resolution: "undici@npm:6.29.0"
-  checksum: 10c0/3fb2117985be977ba8b6bd6a242fec915e1b1d0f9681f5adb3f508fb1717352452d65bcfd3bed09e7c776cfda403a4e8edb24a318492f8b2d793439af2b8699b
+  version: 6.29.1
+  resolution: "undici@npm:6.29.1"
+  checksum: 10c0/2d6970289fcbaca69a484e968fbb5e6fdadf7d9bff30bb5476f71b619d143ec76df1c75a309ac3cb3b3d78238793c613dcaad47dc9d92b63f9e8e73b86ffec23
   languageName: node
   linkType: hard
 
