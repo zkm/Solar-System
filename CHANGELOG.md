@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.0.1](https://github.com/zkm/Solar-System/compare/v2.0.0...v2.0.1) (2026-11-06)
+
+
+### Bug Fixes
+
+* **deps:** bump happy-dom to 21.0.4, refresh undici ([1d70669](https://github.com/zkm/Solar-System/commit/1d70669926b280b96488d4025e7652166fab0b94))
+* **deps:** bump happy-dom to 21.0.4, refresh undici ([80aa58d](https://github.com/zkm/Solar-System/commit/80aa58d45f314f77da0bb929c284cd2c219c7c4d))
+
 ## [2.0.0](https://github.com/zkm/Solar-System/compare/v1.0.3...v2.0.0) (2026-10-14)
 
 
