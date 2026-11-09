@@ -6,6 +6,13 @@ An interactive solar system built with CSS 3D transforms. Originally written in 
 [![Deploy to GitHub Pages](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml/badge.svg?branch=master)](https://github.com/zkm/Solar-System/actions/workflows/deploy.yml) ·
 [![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
+## Built with
+
+[![Stack](https://skillicons.dev/icons?i=html,css,js,vite,nodejs,yarn,vitest,githubactions)](#built-with)
+
+[![Biome](https://img.shields.io/badge/Biome-60A5FA?logo=biome&logoColor=white)](https://biomejs.dev/)
+[![Playwright](https://img.shields.io/badge/Playwright-2EAD33)](https://playwright.dev/)
+
 ## Features
 
 - 3D and 2D views, with an intro that tilts the system into 3D
